@@ -6,23 +6,9 @@ import axios from "axios";
 const Chatsection = () => {
   const [conversations, setConversations] = useState([]);
 
-  useEffect(() => {
-    fetchConversations();
-  }, []);
-
-  const fetchConversations = async () => {
-    try {
-      const response = await axios.get("https://accenchat.onrender.com/conversations"); // Adjust URL based on your backend route
-      setConversations(response.data); // Assuming response.data is an array of conversations
-    } catch (error) {
-      console.error("Error fetching conversations:", error);
-    }
-  };
-
+ 
   const clearChat = () =>
-    setConversations([
-      { role: "assistant", content: "Hello, how can I assist you today?" },
-    ]);
+    setConversations([]);
 
   return (
     <div className="flex justify-between w-full h-full mx-auto p-6 bg-white">
